@@ -3,15 +3,15 @@
   height: 50px;
   background-color: #ffffff;
   box-shadow: 0 3px 20px rgba(154, 154, 154, 0.28);
-  //position: relative;
 
   .header__content {
     height: 100%;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
 
     .header__LeftIcon {
-      top: 27%;
-      position: absolute;
       width: 25px;
       height: 25px;
       padding-left: 10px;
@@ -23,11 +23,16 @@
     }
 
     .header__Title {
-      position: absolute;
-      left: 44%;
-      top: 27%;
+      width: 100%;
+      text-align: center;
       font-size: 19px;
       font-weight: 500;
+    }
+
+    .header__Right {
+      width: 25px;
+      padding-right: 10px;
+      height: 100%;
     }
   }
 }
