@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
+import * as Urls from '../../utils/urls';
 
 import {Empty} from 'antd';
 import './lists.scss'
@@ -9,17 +10,31 @@ import Card from "../../components/card/card";
 const cardMargin = {
 	marginBottom: "10px",
 };
+
 class Lists extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			lists: [1, 2, 3, 4,5,6,7,8],
+			lists: [],
+			loading: true
 		}
 	}
 
 	componentDidMount() {
 		var a = document.getElementsByTagName('body');
-		a[0].style.backgroundColor = "#f9f9f9"
+		a[0].style.backgroundColor = "#f9f9f9";
+		this.getListsInfo();
+	}
+
+	//获取数据
+	getListsInfo() {
+		Urls.getListsInfo('get').then(data => {
+			this.setState({
+				lists: data,
+				loading: false
+			});
+
+		})
 	}
 
 	render() {
@@ -28,7 +43,7 @@ class Lists extends Component {
 			this.state.lists.map((item, index) => {
 				return (
 					<div style={cardMargin} key={index}>
-						<Card/>
+						<Card title={item.title} content={item.content} loading={this.state.loading}/>
 					</div>
 				)
 			})
