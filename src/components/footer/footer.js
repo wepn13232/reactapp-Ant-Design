@@ -4,7 +4,7 @@ import homeIcon from '../../assert/icon/shore.png'
 import lists from '../../assert/icon/menu.png'
 import menu from '../../assert/icon/application.png'
 import intro from '../../assert/icon/intro.png'
-import {Link, withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 
 class Footer extends Component {
 

@@ -9,9 +9,11 @@ import Header from "../../components/header/header";
 class Index extends Component {
 
 	componentDidMount() {
+		var a = document.getElementsByTagName('body');
+		a[0].style.backgroundColor = "#f9f9f9"
 		setTimeout(()=>{
 			this.setState({
-				// loading :false
+				loading :false
 			})
 		},3000)
 	}
@@ -31,7 +33,34 @@ class Index extends Component {
 
 				<div className="index">
 					<Skeleton active loading={this.state.loading}></Skeleton>
-					<Skeleton active loading={this.state.loading}></Skeleton>
+					<Skeleton active loading={this.state.loading}>
+						<p>第一个</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>啊 这</p>
+						<p>最后一个</p>
+					</Skeleton>
 				</div>
 
 				<Footer/>
