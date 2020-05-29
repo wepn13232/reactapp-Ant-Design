@@ -1,66 +1,41 @@
 import React, {Component} from 'react';
-import { Skeleton } from 'antd';
+import {Skeleton} from 'antd';
 import './index.scss'
 import Footer from '../../components/footer/footer'
 import Header from "../../components/header/header";
 
 
-
 class Index extends Component {
 
-	componentDidMount() {
+	componentDidMount = () => {
 		var a = document.getElementsByTagName('body');
 		a[0].style.backgroundColor = "#f9f9f9"
-		setTimeout(()=>{
+		 this.state.timer = setTimeout(() => {
 			this.setState({
-				loading :false
+				loading: false
 			})
-		},3000)
-	}
+		}, 3000)
+	};
+
+	componentWillUnmount = () => {
+		clearTimeout(this.state.timer)
+	};
 
 	constructor(props) {
 		super(props);
-		this.state={
-			headerTitle:"主页",
-			loading:true,
+		this.state = {
+			loading: true,
+			timer:"",
 		}
 	}
 
 	render() {
 		return (
 			<div>
-				<Header headerTitle={this.state.headerTitle}/>
+				<Header headerTitle="主页"/>
 
 				<div className="index">
 					<Skeleton active loading={this.state.loading}></Skeleton>
-					<Skeleton active loading={this.state.loading}>
-						<p>第一个</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>啊 这</p>
-						<p>最后一个</p>
-					</Skeleton>
 				</div>
 
 				<Footer/>

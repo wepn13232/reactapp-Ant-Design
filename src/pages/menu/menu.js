@@ -21,7 +21,7 @@ class Menu extends Component {
 	render() {
 		return (
 			<div>
-				<Header headerTitle={this.state.headerTitle}/>
+				<Header headerTitle="分类"/>
 				<div className="menu">
 					<Skeleton active/>
 				</div>

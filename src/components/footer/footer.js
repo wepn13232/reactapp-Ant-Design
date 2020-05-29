@@ -19,7 +19,7 @@ class Footer extends Component {
 							</div>
 							<div className="tabChose-tab" onClick={()=>this.props.history.push("/menu")}><img alt="menu" src={menu} className="iconPic"/><p>分类</p>
 							</div>
-						<div className="tabChose-tab"><img alt="lists" src={lists} className="iconPic"/><p>排行</p>
+						<div className="tabChose-tab" onClick={()=>this.props.history.push("/lists")}><img alt="lists" src={lists} className="iconPic"/><p>排行</p>
 						</div>
 						<div className="tabChose-tab"><img alt="personInfo" src={intro} className="iconPic"/><p>个人中心</p>
 						</div>
