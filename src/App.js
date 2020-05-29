@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'antd/dist/antd.css'
 import {BrowserRouter} from "react-router-dom";
 import routers from "./Router";
 

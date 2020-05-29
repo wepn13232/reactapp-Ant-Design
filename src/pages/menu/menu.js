@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './menu.scss'
 import Footer from "../../components/footer/footer";
+import { Skeleton } from 'antd';
 import Header from "../../components/header/header";
 
 class Menu extends Component {
@@ -20,7 +21,7 @@ class Menu extends Component {
 			<div>
 				<Header headerTitle={this.state.headerTitle}/>
 				<div className="menu">
-					这里是菜单页面
+					<Skeleton active/>
 				</div>
 
 				<Footer/>
