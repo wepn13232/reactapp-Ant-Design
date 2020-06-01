@@ -37,9 +37,9 @@ class Lists extends Component {
 		})
 	}
 
-	render() {
-		//条件渲染
-		const listsContent = this.state.lists.length === 0 ? (<Empty description={<span>暂无数据</span>}/>) : (
+	//页面lists组件渲染--抽取
+	listsMap() {
+		return (
 			this.state.lists.map((item, index) => {
 				return (
 					<div style={cardMargin} key={index}>
@@ -47,7 +47,14 @@ class Lists extends Component {
 					</div>
 				)
 			})
-		);
+		)
+	}
+
+	render() {
+		//条件渲染
+		const listsContent = this.state.lists.length === 0 ?
+			(<Empty description={<span>暂无数据</span>}/>) :
+			(this.listsMap())
 
 		return (
 			<div className="lists">
