@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import Menu from "./pages/menu/menu.js";
 import Index from "./pages/index";
 import Lists from "./pages/lists/lists";
+import PersonalPage from "./pages/personalPage/personalPage";
 
 //路由配置
 const routers =
@@ -11,6 +12,7 @@ const routers =
 		<Route path="/index" component={Index}></Route>
 		<Route path="/menu" component={Menu}></Route>
 		<Route path="/lists" component={Lists}></Route>
+		<Route path="/personalPage" component={PersonalPage}></Route>
 	</Switch>
 
 export default routers;
