@@ -10,11 +10,13 @@ class Index extends Component {
 	componentDidMount = () => {
 		var a = document.getElementsByTagName('body');
 		a[0].style.backgroundColor = "#f9f9f9"
-		 this.state.timer = setTimeout(() => {
-			this.setState({
-				loading: false
-			})
-		}, 3000)
+		this.setState({
+			timer:setTimeout(()=>{
+				this.setState({
+					loading: false
+				})
+			},2000)
+		})
 	};
 
 	componentWillUnmount = () => {
