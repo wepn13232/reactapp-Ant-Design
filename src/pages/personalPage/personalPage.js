@@ -30,6 +30,7 @@ class PersonalPage extends Component {
 	}
 
 
+
 	render() {
 		return (
 			<div className="personalPage">
@@ -76,6 +77,12 @@ class PersonalPage extends Component {
 							<div>
 								{"工作经历"}
 								{this.state.workCompanies}
+							</div>
+						</ContentCard>
+						<ContentCard>
+							<div>
+								{"个人简介"}
+								{"主业是音乐、健身，副业兼职前端开发的一个人下人"}
 							</div>
 						</ContentCard>
 					</div>
