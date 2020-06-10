@@ -17,7 +17,7 @@ class Footer extends Component {
 					<div className="tabChose">
 							<div className="tabChose-tab" onClick={()=>this.props.history.push("/index")}><img alt="home" src={homeIcon} className="iconPic"/><p>主页</p>
 							</div>
-							<div className="tabChose-tab" onClick={()=>this.props.history.push("/menu")}><img alt="menu" src={menu} className="iconPic"/><p>分类</p>
+							<div className="tabChose-tab" onClick={()=>this.props.history.push("/mark")}><img alt="mark" src={menu} className="iconPic"/><p>记事本</p>
 							</div>
 						<div className="tabChose-tab" onClick={()=>this.props.history.push("/lists")}><img alt="lists" src={lists} className="iconPic"/><p>排行</p>
 						</div>

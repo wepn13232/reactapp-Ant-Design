@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './personalPage.scss'
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 
-import {Input, Tag, Avatar} from 'antd';
-import {AudioOutlined, UserOutlined} from '@ant-design/icons';
+import { Input, Tag, Avatar } from 'antd';
+import { AudioOutlined, UserOutlined } from '@ant-design/icons';
 import ContentCard from "../../components/contentCard/contentCard";
 
 
-const {Search} = Input;
+const { Search } = Input;
 
 
 class PersonalPage extends Component {
@@ -20,7 +20,7 @@ class PersonalPage extends Component {
 			workAbility: ["熟练...", "熟练...", "熟练...", "熟练...", "熟悉..."],
 			itemExperience: ["广州天高软件科技公司官网"],
 			workCompanies: ["广州天高软件科技有限公司", "广州明动软件股份有限公司"],
-			skillTag:['Vue.js','React.js','HTML','CSS','小程序']
+			skillTag: ['Vue.js', 'React.js', 'HTML', 'CSS', '小程序']
 		}
 	}
 
@@ -34,12 +34,12 @@ class PersonalPage extends Component {
 	render() {
 		return (
 			<div className="personalPage">
-				<Header headerTitle="个人页面"/>
+				<Header headerTitle="个人页面" />
 				<div className="personalPage__content">
 					{/*头部内容*/}
 					<div className="content__header">
 						<div className="header__left">
-							<Avatar size={80} icon={<UserOutlined/>}/>
+							<Avatar size={80} icon={<UserOutlined />} />
 						</div>
 						<div className="header__right">
 							<div className="name">
@@ -50,8 +50,8 @@ class PersonalPage extends Component {
 							</div>
 							<div className="skillTag">
 								{
-									this.state.skillTag.map((item,index)=>{
-										return(
+									this.state.skillTag.map((item, index) => {
+										return (
 											<Tag color="gold" key={index} className="mb5">{item}</Tag>
 										)
 									})
@@ -87,7 +87,7 @@ class PersonalPage extends Component {
 						</ContentCard>
 					</div>
 				</div>
-				<Footer/>
+				<Footer />
 			</div>
 		);
 	}
