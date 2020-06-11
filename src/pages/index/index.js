@@ -3,32 +3,46 @@ import {Skeleton} from 'antd';
 import './index.scss'
 import Footer from '../../components/footer/footer'
 import Header from "../../components/header/header";
+import store from "../../store";
+import {addItem} from "../../store/actionCreators";
 
 
 class Index extends Component {
-
-	componentDidMount = () => {
-		var a = document.getElementsByTagName('body');
-		a[0].style.backgroundColor = "#f9f9f9"
-		this.setState({
-			timer:setTimeout(()=>{
-				this.setState({
-					loading: false
-				})
-			},2000)
-		})
-	};
-
-	componentWillUnmount = () => {
-		clearTimeout(this.state.timer)
-	};
-
 	constructor(props) {
 		super(props);
 		this.state = {
-			loading: true,
-			timer:"",
+			inputValue: "",
+			storeDate: store.getState()
 		}
+		store.subscribe(() => this.storeChange())
+	}
+
+	componentDidMount = () => {
+		var a = document.getElementsByTagName('body');
+		a[0].style.backgroundColor = "#f9f9f9";
+	};
+
+	componentWillUnmount = () => {
+	};
+
+	componentDidUpdate(prevProps, prevState, snapshot) {
+		console.log(this.state.storeDate)
+	}
+
+	handleChange(e) {
+		this.setState({
+			inputValue: e.target.value
+		})
+	}
+
+	storeChange() {
+		this.setState({
+			storeDate: store.getState()
+		})
+	}
+
+	addItem() {
+		store.dispatch(addItem(this.state.inputValue));
 	}
 
 	render() {
@@ -37,7 +51,18 @@ class Index extends Component {
 				<Header headerTitle="主页"/>
 
 				<div className="index">
-					<Skeleton active loading={this.state.loading}></Skeleton>
+					<input value={this.state.inputValue} onChange={(e) => this.handleChange(e)}/>
+					<button onClick={() => this.addItem()}>添加</button>
+				</div>
+
+				<div className="lists">
+					{
+						this.state.storeDate.lists.map((item, index) => {
+							return (
+								<p key={index}>{item}</p>
+							)
+						})
+					}
 				</div>
 
 				<Footer/>

@@ -1,54 +1,38 @@
-import React, { Component, useState, useEffect } from 'react';
-import './mark.scss'
+import React, {Component, useState, useEffect} from "react";
+import "./mark.scss";
 import Footer from "../../components/footer/footer";
-import { Skeleton, Button, Radio, Collapse } from 'antd';
+import {Skeleton, Button, Radio, Collapse} from "antd";
 import Header from "../../components/header/header";
-const { Panel } = Collapse;
 
+const {Panel} = Collapse;
 
-
-class Menu extends Component {
+class Mark extends Component {
 	// 构造器
 	constructor(props) {
 		super(props);
 		this.state = {
 			inputValue: "",
 			skeLoading: true,
-			timer: ""
-		}
+			timer: "",
+		};
 	}
-
 	// 组件挂载
 	componentDidMount() {
-		var a = document.getElementsByTagName('body');
+		var a = document.getElementsByTagName("body");
 		a[0].style.backgroundColor = "#f9f9f9";
 		this.setLoading();
 	}
-
 	// 组件更新
 	componentDidUpdate(prevProps, prevState, snapshot) {
 		// 输出变化前、变化后的数值变化
-		console.log(prevState, this.state)
+		console.log(prevState, this.state);
 	}
-
 	// 组件销毁前
 	componentWillUnmount() {
-		clearTimeout(this.state.timer)
+		clearTimeout(this.state.timer);
 	}
-
-	// 列表加载完之后渲染
-	setLoading() {
-		this.setState({
-			timer: setTimeout(() => {
-				this.setState({
-					skeLoading: false
-				})
-			}, 1500)
-		})
-	}
-
-
-	render() {
+	// 条件渲染
+	showLists() {
 		// 条件渲染列表
 		const lists = !this.state.skeLoading ? (
 			<Collapse accordion>
@@ -62,28 +46,45 @@ class Menu extends Component {
 					<p>测试文字</p>
 				</Panel>
 			</Collapse>
-		) : ("")
+		) : ("");
+		return lists;
+	}
+	// 列表加载完之后渲染
+	setLoading() {
+		this.setState({
+			timer: setTimeout(() => {
+				this.setState({
+					skeLoading: false,
+				});
+			}, 1500),
+		});
+	}
+	//添加记事
+	addLists(){
 
+	}
+
+	render() {
 		return (
 			<div>
-				<Header headerTitle="记事本" />
+				<Header headerTitle="记事本"/>
 				<div className="mark">
 					<div className="headerBtn">
-						<Button type="primary" shape="round">添加记事</Button>
+						<Button type="primary" shape="round" onClick={()=>this.addLists()}>
+							添加记事
+						</Button>
 					</div>
 					{/* 记事本列表 */}
 					<div className="markInfo">
-						<Skeleton active loading={this.state.skeLoading} />
-						<div className="content">
-							{lists}
-						</div>
+						<Skeleton active loading={this.state.skeLoading}/>
+						<div className="content">{this.showLists()}</div>
 					</div>
 				</div>
 
-				<Footer />
+				<Footer/>
 			</div>
 		);
 	}
 }
 
-export default Menu;
+export default Mark;
