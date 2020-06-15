@@ -4,7 +4,7 @@ import './index.scss'
 import Footer from '../../components/footer/footer'
 import Header from "../../components/header/header";
 import store from "../../store";
-import {addItem} from "../../store/actionCreators";
+import {addItem, inputChange} from "../../store/actionCreators";
 
 
 class Index extends Component {
@@ -33,6 +33,7 @@ class Index extends Component {
 		this.setState({
 			inputValue: e.target.value
 		})
+		// store.dispatch(inputChange(e.target.value))
 	}
 
 	storeChange() {

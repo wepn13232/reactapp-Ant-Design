@@ -1,7 +1,7 @@
 //定义默认数据值
 let defaultState = {
 	inputValue: "",
-	lists: []
+	lists: [],
 };
 
 // 深度拷贝数据
@@ -19,5 +19,14 @@ export default (state = defaultState, action) => {
 
 		return newState
 	}
+
+	if (action.type==="inputChange"){
+		let newState = deepCopy(state);
+		newState.inputValue = action.val;
+
+		return newState;
+	}
+
+
 	return state;  //最终拿到返回的newState
 }

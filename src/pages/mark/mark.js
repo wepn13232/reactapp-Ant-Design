@@ -16,21 +16,25 @@ class Mark extends Component {
 			timer: "",
 		};
 	}
+
 	// 组件挂载
 	componentDidMount() {
 		var a = document.getElementsByTagName("body");
 		a[0].style.backgroundColor = "#f9f9f9";
 		this.setLoading();
 	}
+
 	// 组件更新
 	componentDidUpdate(prevProps, prevState, snapshot) {
 		// 输出变化前、变化后的数值变化
 		console.log(prevState, this.state);
 	}
+
 	// 组件销毁前
 	componentWillUnmount() {
 		clearTimeout(this.state.timer);
 	}
+
 	// 条件渲染
 	showLists() {
 		// 条件渲染列表
@@ -49,6 +53,7 @@ class Mark extends Component {
 		) : ("");
 		return lists;
 	}
+
 	// 列表加载完之后渲染
 	setLoading() {
 		this.setState({
@@ -59,10 +64,12 @@ class Mark extends Component {
 			}, 1500),
 		});
 	}
-	//添加记事
-	addLists(){
 
+	//添加记事
+	addLists() {
+		this.props.history.push("/addMarkLists")
 	}
+
 
 	render() {
 		return (
@@ -70,7 +77,7 @@ class Mark extends Component {
 				<Header headerTitle="记事本"/>
 				<div className="mark">
 					<div className="headerBtn">
-						<Button type="primary" shape="round" onClick={()=>this.addLists()}>
+						<Button type="primary" shape="round" onClick={() => this.addLists()}>
 							添加记事
 						</Button>
 					</div>
