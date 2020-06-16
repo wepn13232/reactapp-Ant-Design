@@ -1,8 +1,9 @@
 import React, {Component, useState, useEffect} from "react";
 import "./mark.scss";
 import Footer from "../../components/footer/footer";
-import {Skeleton, Button, Radio, Collapse} from "antd";
+import {Skeleton, Button, Radio, Collapse, Empty} from "antd";
 import Header from "../../components/header/header";
+import store from "../../store";
 
 const {Panel} = Collapse;
 
@@ -14,7 +15,9 @@ class Mark extends Component {
 			inputValue: "",
 			skeLoading: true,
 			timer: "",
+			listsData: store.getState()
 		};
+		store.subscribe(() => this.updateStore)
 	}
 
 	// 组件挂载
@@ -27,7 +30,7 @@ class Mark extends Component {
 	// 组件更新
 	componentDidUpdate(prevProps, prevState, snapshot) {
 		// 输出变化前、变化后的数值变化
-		console.log(prevState, this.state);
+		// console.log(prevState, this.state);
 	}
 
 	// 组件销毁前
@@ -35,26 +38,14 @@ class Mark extends Component {
 		clearTimeout(this.state.timer);
 	}
 
-	// 条件渲染
+	// 加载之后渲染列表
 	showLists() {
 		// 条件渲染列表
-		const lists = !this.state.skeLoading ? (
-			<Collapse accordion>
-				<Panel header="This is panel header 1" key="1">
-					<p>测试文字</p>
-				</Panel>
-				<Panel header="This is panel header 2" key="2">
-					<p>测试文字</p>
-				</Panel>
-				<Panel header="This is panel header 3" key="3">
-					<p>测试文字</p>
-				</Panel>
-			</Collapse>
-		) : ("");
+		const lists = !this.state.skeLoading ? (this.isEmpty()) : null;
 		return lists;
 	}
 
-	// 列表加载完之后渲染
+	// 列表加载
 	setLoading() {
 		this.setState({
 			timer: setTimeout(() => {
@@ -65,9 +56,35 @@ class Mark extends Component {
 		});
 	}
 
+	//判断是否有数据
+	isEmpty() {
+		return (
+			this.state.listsData.lists.length > 0 ? (
+				<Collapse accordion>
+					{
+						this.state.listsData.lists.map((item, index) => {
+							return (
+								<Panel header={item.title} key={index}>
+									<p>{item.content}</p>
+								</Panel>
+							)
+						})
+					}
+				</Collapse>
+			) : (<Empty description={<span>暂无数据</span>}/>)
+		)
+	}
+
 	//添加记事
 	addLists() {
 		this.props.history.push("/addMarkLists")
+	}
+
+	//监听更新store数据
+	updateStore() {
+		this.setState({
+			listsData: store.getState()
+		})
 	}
 
 

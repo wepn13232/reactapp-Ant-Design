@@ -1,6 +1,5 @@
 //定义默认数据值
 let defaultState = {
-	inputValue: "",
 	lists: [],
 };
 
@@ -12,6 +11,8 @@ const deepCopy = content => JSON.parse(JSON.stringify(content));
 * 这里使用了es6语法 function(state = defaultState , action){}
 * */
 export default (state = defaultState, action) => {
+
+	//添加列表
 	if (action.type === "add_list") {
 		//拷贝数据，官方不推荐直接修改state，因拷贝出来修改之后再赋值回去
 		let newState = deepCopy(state);
@@ -20,12 +21,7 @@ export default (state = defaultState, action) => {
 		return newState
 	}
 
-	if (action.type==="inputChange"){
-		let newState = deepCopy(state);
-		newState.inputValue = action.val;
-
-		return newState;
-	}
+	//
 
 
 	return state;  //最终拿到返回的newState
