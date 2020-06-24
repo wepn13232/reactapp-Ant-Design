@@ -25,19 +25,20 @@ class LoginPage extends Component {
 
 	//注册
 	register() {
-		this.changeFlag();
+		this.changeFlag(true);
 	}
+
 	//改变弹窗显示
-	changeFlag() {
+	changeFlag(flagVal) {
 		this.setState({
-			showDialog: true,
+			showDialog: flagVal,
 		})
 	}
 
 	//显示弹窗
 	showDialogFlag() {
 		return (
-			this.state.showDialog ? (<PixDialog changeFlag={()=>this.changeFlag()}/>) : null
+			this.state.showDialog ? (<PixDialog changeFlag={(flagVal) => this.changeFlag(flagVal)}/>) : null
 		)
 	}
 

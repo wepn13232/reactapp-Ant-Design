@@ -6,6 +6,10 @@ class PixDialog extends Component {
 		super(props);
 	}
 
+	changeFlag(){
+		this.props.changeFlag();
+	}
+
 	render() {
 		return (
 			<div className="pixDialog">
@@ -15,8 +19,8 @@ class PixDialog extends Component {
 						<p className="title">提示！</p>
 						<p>暂时不提供注册哦</p>
 						<menu className="dialog-menu">
-							<button className="nes-btn is-primary mr20" onClick={()=>this.props.changeFlag}>Confirm</button>
-							<button className="nes-btn" onClick={()=>this.props.changeFlag}>Cancel</button>
+							<button className="nes-btn is-primary mr20" onClick={()=>this.changeFlag(false)}>Confirm</button>
+							<button className="nes-btn" onClick={()=>this.changeFlag(false)}>Cancel</button>
 						</menu>
 					</form>
 				</dialog>
