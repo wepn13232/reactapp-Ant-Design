@@ -1,0 +1,28 @@
+
+.loginPage {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-attachment: fixed;
+  background-color: #2cafff;
+
+  .loginForm {
+    background-color: #ffffff;
+    width: 50%;
+    margin: 10% auto;
+    padding: 20px 20px;
+
+    .titleLogo {
+      width: 100%;
+      text-align: center;
+    }
+
+    .formItem {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.cn_FontFamily {
+  font-family: Zpix !important;
+}

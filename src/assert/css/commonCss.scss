@@ -1,0 +1,16 @@
+//自定义像素字体
+@font-face {
+  font-family: 'Zpix';
+  src: url('../../../src/assert/font/Zpix.ttf');
+  src: url('../../../src/assert/font/Zpix.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body, pre, code, kbd, samp {
+  font-family: Zpix;
+}
+
+.mr20{
+  margin-right: 20px;
+}
