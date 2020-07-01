@@ -3,13 +3,13 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  background-attachment: fixed;
+  padding-top: 10%;
   background-color: #2cafff;
 
   .loginForm {
     background-color: #ffffff;
     width: 50%;
-    margin: 10% auto;
+    margin: 0 auto;
     padding: 20px 20px;
 
     .titleLogo {
@@ -25,4 +25,22 @@
 
 .cn_FontFamily {
   font-family: Zpix !important;
+}
+
+.fixBottom {
+  padding: 10px 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.fr {
+  float: right;
+}
+.fl{
+  float: left;
+}
+
+.clearFix {
+  clear: both;
 }

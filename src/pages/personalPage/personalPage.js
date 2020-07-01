@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './personalPage.scss'
-import Header from "../../components/header/header";
-import Footer from "../../components/footer/footer";
 
 import { Input, Tag, Avatar } from 'antd';
 import { AudioOutlined, UserOutlined } from '@ant-design/icons';
@@ -34,7 +32,6 @@ class PersonalPage extends Component {
 	render() {
 		return (
 			<div className="personalPage">
-				<Header headerTitle="个人页面" />
 				<div className="personalPage__content">
 					{/*头部内容*/}
 					<div className="content__header">
@@ -87,7 +84,6 @@ class PersonalPage extends Component {
 						</ContentCard>
 					</div>
 				</div>
-				<Footer />
 			</div>
 		);
 	}

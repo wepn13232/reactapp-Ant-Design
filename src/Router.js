@@ -1,13 +1,31 @@
 import React from "react";
-import {Route, Switch} from 'react-router-dom';
 import LoginPage from "./pages/loginPage/loginPage";
+import PersonalPage from "./pages/personalPage/personalPage";
+import homeIndex from "./pages/home/homeIndex";
 
 
 //路由配置
-const routers =
-	<Switch>
-		<Route path="/" component={LoginPage} exact/> {/*路由重定向，指向默认路由*/}
-		<Route path="/loginPage" component={LoginPage}/>
-	</Switch>
+const routers = [
+	{
+		path: "/",
+		component: LoginPage,
+		exact: true
+	},
+	{
+		path: "/loginPage",
+		component: LoginPage,
+	},
+	{
+		path: "/homeIndex",
+		component: homeIndex,
+		children:[
+			{
+				path:"/homeIndex/personalPage",
+				component:PersonalPage,
+			},
+		]
+	},
+]
+
 
 export default routers;
