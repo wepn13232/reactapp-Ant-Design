@@ -1,0 +1,11 @@
+.homeIndex {
+  display: flex;
+  justify-content: flex-start;
+
+  .routerView {
+    width: 100%;
+    .routerHeader{
+      width: 100%;
+    }
+  }
+}

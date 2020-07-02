@@ -24,7 +24,7 @@ class LoginPage extends Component {
 		console.log(this.state.formValue.userName, this.state.formValue.password)
 		if (this.state.formValue.userName === 'linqy' && this.state.formValue.password === '131898') {
 			message.success("登录成功~！");
-			this.props.history.push("/homeIndex/personalPage")
+			this.props.history.push("/homeIndex/workExprience")
 		} else {
 			message.warning("请检查账号密码是否正确~！");
 		}

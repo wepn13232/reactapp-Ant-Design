@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import './personalPage.scss'
 
-import { Input, Tag, Avatar } from 'antd';
-import { AudioOutlined, UserOutlined } from '@ant-design/icons';
+import { Input } from 'antd';
 import ContentCard from "../../components/contentCard/contentCard";
 
 
 const { Search } = Input;
 
 
-class PersonalPage extends Component {
+class WorkExprience extends Component {
 
 	constructor(props) {
 		super(props);
@@ -18,7 +17,6 @@ class PersonalPage extends Component {
 			workAbility: ["熟练...", "熟练...", "熟练...", "熟练...", "熟悉..."],
 			itemExperience: ["广州天高软件科技公司官网"],
 			workCompanies: ["广州天高软件科技有限公司", "广州明动软件股份有限公司"],
-			skillTag: ['Vue.js', 'React.js', 'HTML', 'CSS', '小程序']
 		}
 	}
 
@@ -33,29 +31,7 @@ class PersonalPage extends Component {
 		return (
 			<div className="personalPage">
 				<div className="personalPage__content">
-					{/*头部内容*/}
-					<div className="content__header">
-						<div className="header__left">
-							<Avatar size={80} icon={<UserOutlined />} />
-						</div>
-						<div className="header__right">
-							<div className="name">
-								林启元
-							</div>
-							<div className="tag">
-								<Tag color="blue">前端开发工程师</Tag>
-							</div>
-							<div className="skillTag">
-								{
-									this.state.skillTag.map((item, index) => {
-										return (
-											<Tag color="gold" key={index} className="mb5">{item}</Tag>
-										)
-									})
-								}
-							</div>
-						</div>
-					</div>
+
 					{/*中间内容块*/}
 					<div>
 						<ContentCard>
@@ -89,4 +65,4 @@ class PersonalPage extends Component {
 	}
 }
 
-export default PersonalPage;
+export default WorkExprience;

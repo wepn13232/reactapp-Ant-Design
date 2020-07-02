@@ -1,6 +1,6 @@
 import React from "react";
 import LoginPage from "./pages/loginPage/loginPage";
-import PersonalPage from "./pages/personalPage/personalPage";
+import WorkExprience from "./pages/workExprience/workExprience";
 import homeIndex from "./pages/home/homeIndex";
 
 
@@ -20,8 +20,8 @@ const routers = [
 		component: homeIndex,
 		children:[
 			{
-				path:"/homeIndex/personalPage",
-				component:PersonalPage,
+				path:"/homeIndex/workExprience",
+				component:WorkExprience,
 			},
 		]
 	},

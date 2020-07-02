@@ -1,0 +1,39 @@
+.avatorDiv {
+  width: 95%;
+  margin: 0 auto;
+
+  .content__header {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: self-start;
+
+    .header__left {
+
+    }
+
+    .header__right {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      padding-left: 10px;
+
+      .name {
+        font-weight: 500;
+        font-size: large;
+        width: 100%;
+      }
+
+      .tag {
+        width: 100%;
+        margin-top: 5px;
+      }
+
+      .skillTag {
+        margin-top: 5px;
+      }
+    }
+  }
+}
