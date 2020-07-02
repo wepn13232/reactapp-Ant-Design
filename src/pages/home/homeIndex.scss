@@ -1,9 +1,15 @@
 .homeIndex {
   display: flex;
   justify-content: flex-start;
+  .leftMenu{
+    height: 100%;
+    position: fixed;
+    background-attachment: fixed;
+  }
 
   .routerView {
     width: 100%;
+    padding-left: 256px;
     .routerHeader{
       width: 100%;
     }
