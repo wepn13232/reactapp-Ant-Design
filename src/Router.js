@@ -2,6 +2,7 @@ import React from "react";
 import LoginPage from "./pages/loginPage/loginPage";
 import WorkExprience from "./pages/workExprience/workExprience";
 import homeIndex from "./pages/home/homeIndex";
+import ItemExprience from "./pages/itemExprience/itemExprience";
 
 
 //路由配置
@@ -22,6 +23,10 @@ const routers = [
 			{
 				path:"/homeIndex/workExprience",
 				component:WorkExprience,
+			},
+			{
+				path:"/homeIndex/ItemExprience",
+				component:ItemExprience,
 			},
 		]
 	},

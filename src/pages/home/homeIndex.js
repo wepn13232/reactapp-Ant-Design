@@ -22,7 +22,7 @@ class HomeIndex extends Component {
 				this.props.history.push("/homeIndex/workExprience");
 				break;
 			case '2':
-				this.props.history.push("/");
+				this.props.history.push("/homeIndex/ItemExprience");
 				break;
 		}
 	};

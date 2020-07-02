@@ -28,7 +28,6 @@ class WorkExprience extends Component {
 		return (
 			<div className="personalPage">
 				<div className="personalPage__content">
-
 					{/*中间内容块*/}
 					<div>
 						<ContentCard>
