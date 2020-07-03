@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {message} from 'antd';
 import './loginPage.scss';
 import PixDialog from "../../components/pixDialog/pixDialog";
+import routers from "../../router/routerConfig";
 
 
 class LoginPage extends Component {
@@ -64,6 +65,7 @@ class LoginPage extends Component {
 			}
 		})
 	}
+
 
 	//Methods__end===========
 
