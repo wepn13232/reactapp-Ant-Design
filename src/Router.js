@@ -3,6 +3,8 @@ import LoginPage from "./pages/loginPage/loginPage";
 import WorkExprience from "./pages/workExprience/workExprience";
 import homeIndex from "./pages/home/homeIndex";
 import ItemExprience from "./pages/itemExprience/itemExprience";
+import PersonalAbility from "./pages/personalAbility/personalAbility";
+import PersonalHonor from "./pages/personalHonor/personalHonor";
 
 
 //路由配置
@@ -27,6 +29,14 @@ const routers = [
 			{
 				path:"/homeIndex/ItemExprience",
 				component:ItemExprience,
+			},
+			{
+				path:"/homeIndex/PersonalAbility",
+				component:PersonalAbility,
+			},
+			{
+				path:"/homeIndex/PersonalHonor",
+				component:PersonalHonor,
 			},
 		]
 	},

@@ -17,11 +17,6 @@ class WorkExprience extends Component {
 		}
 	}
 
-	componentDidMount() {
-		var a = document.getElementsByTagName('body');
-		a[0].style.backgroundColor = "#f9f9f9"
-	}
-
 
 
 	render() {
@@ -29,14 +24,12 @@ class WorkExprience extends Component {
 			<div className="personalPage">
 				<div className="personalPage__content">
 					{/*中间内容块*/}
-					<div>
 						<ContentCard>
 							<div>
 								{"工作经历"}
 								{this.state.workCompanies}
 							</div>
 						</ContentCard>
-					</div>
 				</div>
 			</div>
 		);

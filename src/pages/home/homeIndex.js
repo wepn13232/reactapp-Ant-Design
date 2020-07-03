@@ -15,6 +15,11 @@ class HomeIndex extends Component {
 		}
 	}
 
+	componentDidMount() {
+		var a = document.getElementsByTagName('body');
+		a[0].style.backgroundColor = "#f9f9f9"
+	}
+
 	handleClick = e => {
 		console.log(e.key)
 		switch (e.key) {
@@ -23,6 +28,12 @@ class HomeIndex extends Component {
 				break;
 			case '2':
 				this.props.history.push("/homeIndex/ItemExprience");
+				break;
+			case"3":
+				this.props.history.push("/homeIndex/PersonalAbility");
+				break;
+			case"4":
+				this.props.history.push("/homeIndex/PersonalHonor");
 				break;
 		}
 	};
@@ -42,8 +53,8 @@ class HomeIndex extends Component {
 						<SubMenu
 							key="sub1"
 							title={
-							<span className="nes-pointer">
-				              <span >个人简历</span>
+								<span className="nes-pointer">
+				              <span>个人简历</span>
 				            </span>}>
 							<Menu.ItemGroup key="g1" title="经历方面">
 								<Menu.Item key="1" className="nes-pointer">工作经历</Menu.Item>

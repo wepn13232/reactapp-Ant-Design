@@ -12,7 +12,7 @@ class ItemExprience extends Component {
 	render() {
 		return (
 			<div className="itemExprience">
-				<div className="content">
+				<div className="itemExprience__content">
 					<ContentCard>
 						<div>
 							{"项目经验"}
