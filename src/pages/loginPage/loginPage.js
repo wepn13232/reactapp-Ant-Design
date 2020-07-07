@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {message} from 'antd';
 import './loginPage.scss';
 import PixDialog from "../../components/pixDialog/pixDialog";
-import routers from "../../router/routerConfig";
 
 
 class LoginPage extends Component {
@@ -15,7 +14,23 @@ class LoginPage extends Component {
 				password: ""
 			},
 			showDialog: false,
+			pageAnimation:""
 		}
+	}
+
+	componentDidMount() {
+		this.setState({
+			pageAnimation:setTimeout(()=>{
+				this.props.history.push("/homeIndex/workExprience")
+			},3600)
+		})
+	}
+
+	componentWillUnmount() {
+		//清空setTime
+		this.setState({
+			pageAnimation:""
+		})
 	}
 
 
@@ -77,22 +92,23 @@ class LoginPage extends Component {
 				{/*登录表单*/}
 				<div className="loginForm">
 					<h1 className="titleLogo">Sev3n像素风</h1>
-					{/*像素表单*/}
-					{/*用户名*/}
-					<div className="nes-field formItem">
-						<label htmlFor="name_field">用户名</label>
-						<input type="text" id="name_field" className="nes-input" name="userName"
-						       onChange={(e) => this.handleChange(e)}/>
-					</div>
-					{/*密码*/}
-					<div className="nes-field formItem">
-						<label htmlFor="name_field">密码</label>
-						<input type="password" id="pwd_field" className="nes-input" name="password"
-						       onChange={(e) => this.handleChange(e)}/>
-					</div>
+					{/*/!*像素表单*!/*/}
+					{/*/!*用户名*!/*/}
+					{/*<div className="nes-field formItem">*/}
+					{/*	<label htmlFor="name_field">用户名</label>*/}
+					{/*	<input type="text" id="name_field" className="nes-input" name="userName"*/}
+					{/*	       onChange={(e) => this.handleChange(e)}/>*/}
+					{/*</div>*/}
+					{/*/!*密码*!/*/}
+					{/*<div className="nes-field formItem">*/}
+					{/*	<label htmlFor="name_field">密码</label>*/}
+					{/*	<input type="password" id="pwd_field" className="nes-input" name="password"*/}
+					{/*	       onChange={(e) => this.handleChange(e)}/>*/}
+					{/*</div>*/}
 
-					<button type="button" className="nes-btn is-primary mr20" onClick={() => this.login()}>登录</button>
-					<button type="button" className="nes-btn" onClick={() => this.register()}>注册</button>
+					{/*<button type="button" className="nes-btn is-primary mr20" onClick={() => this.login()}>登录</button>*/}
+					{/*<button type="button" className="nes-btn" onClick={() => this.register()}>注册</button>*/}
+					<h3 className="titleLogo">林启元的个人简历</h3>
 				</div>
 				{/*弹窗显示*/}
 				{this.showDialogFlag()}

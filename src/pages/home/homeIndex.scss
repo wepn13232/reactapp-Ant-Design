@@ -1,7 +1,10 @@
 .homeIndex {
   display: flex;
   justify-content: flex-start;
-  .leftMenu{
+  animation: pageAnimationOpacity 2s ease-in-out;
+  animation-fill-mode: forwards;
+
+  .leftMenu {
     height: 100%;
     position: fixed;
     background-attachment: fixed;
@@ -10,8 +13,18 @@
   .routerView {
     width: 100%;
     padding-left: 256px;
-    .routerHeader{
+
+    .routerHeader {
       width: 100%;
     }
+  }
+}
+
+@keyframes pageAnimationOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

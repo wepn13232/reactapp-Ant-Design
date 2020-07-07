@@ -5,6 +5,13 @@
   position: absolute;
   padding-top: 10%;
   background-color: #2cafff;
+  transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+  -webkit-transition: all ease-in-out 0.5s;
+  animation: pageAnimation 1.5s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
 
   .loginForm {
     background-color: #ffffff;
@@ -37,10 +44,20 @@
 .fr {
   float: right;
 }
-.fl{
+
+.fl {
   float: left;
 }
 
 .clearFix {
   clear: both;
+}
+
+@keyframes pageAnimation {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -100%;
+  }
 }

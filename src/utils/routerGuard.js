@@ -1,8 +1,6 @@
 /*
 * 路由守卫，路由拦截
 * */
-
-
 const routerGuard = (props) => {
 	let session = sessionStorage.getItem('userInfo');
 	//有拦截验证标识

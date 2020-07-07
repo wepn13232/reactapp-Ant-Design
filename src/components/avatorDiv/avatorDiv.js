@@ -8,7 +8,7 @@ class AvatorDiv extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			skillTag: ['Vue.js', 'React.js', 'HTML', 'CSS', '小程序']
+			skillTag: ['Vue.js', 'React.js', 'HTML', 'CSS','JavaScript','小程序']
 		}
 	}
 
