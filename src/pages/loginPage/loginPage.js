@@ -19,6 +19,8 @@ class LoginPage extends Component {
 	}
 
 	componentDidMount() {
+		var a = document.getElementsByTagName('body');
+		a[0].style.backgroundColor = "#f9f9f9"
 	}
 
 	componentWillUnmount() {

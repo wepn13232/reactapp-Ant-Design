@@ -3,6 +3,7 @@ import {renderRoutes} from "react-router-config";
 import {Menu} from 'antd';
 import './homeIndex.scss'
 import AvatorDiv from "../../components/avatorDiv/avatorDiv";
+import RcQueueAnim from "rc-queue-anim";
 
 const {SubMenu} = Menu;
 
@@ -42,7 +43,8 @@ class HomeIndex extends Component {
 		return (
 			<div className="homeIndex">
 				{/*左边菜单*/}
-				<div className="leftMenu">
+				<RcQueueAnim type={"left"}>
+				<div className="leftMenu" key={0}>
 					<Menu
 						onClick={this.handleClick}
 						style={{width: 256, height: "100%"}}
@@ -67,15 +69,22 @@ class HomeIndex extends Component {
 						</SubMenu>
 					</Menu>
 				</div>
+				</RcQueueAnim>
 
 
 				{/*路由视图变化*/}
 				<div className="routerView">
 					{/*固定头部内容*/}
-					<div className="routerHeader">
-						<AvatorDiv/>
-					</div>
-					{renderRoutes(this.state.route.children)}
+					<RcQueueAnim type={"top"} delay={500}>
+						<div className="routerHeader" key={0}>
+							<AvatorDiv/>
+						</div>
+						<RcQueueAnim type={"bottom"} key={1} delay={300}>
+							<div key={0}>
+								{renderRoutes(this.state.route.children)}
+							</div>
+						</RcQueueAnim>
+					</RcQueueAnim>
 				</div>
 			</div>
 		);
