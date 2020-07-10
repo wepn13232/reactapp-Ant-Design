@@ -5,13 +5,6 @@
   position: absolute;
   padding-top: 10%;
   background-color: #2cafff;
-  transition: all ease-in-out 0.5s;
-  -moz-transition: all ease-in-out 0.5s;
-  -o-transition: all ease-in-out 0.5s;
-  -webkit-transition: all ease-in-out 0.5s;
-  animation: pageAnimation 1.5s ease-in-out;
-  animation-fill-mode: forwards;
-  animation-delay: 2s;
 
   .loginForm {
     background-color: #ffffff;
@@ -27,6 +20,16 @@
     .formItem {
       margin-bottom: 20px;
     }
+  }
+
+  .mouseClick {
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    font-size: larger;
+    animation: mouseClickFlicker 1s ease-in-out infinite;
+    animation-direction: alternate;
   }
 }
 
@@ -53,11 +56,12 @@
   clear: both;
 }
 
-@keyframes pageAnimation {
+
+@keyframes mouseClickFlicker {
   0% {
-    top: 0;
+    opacity: 0;
   }
   100% {
-    top: -100%;
+    opacity: 1;
   }
 }
