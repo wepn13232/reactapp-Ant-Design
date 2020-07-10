@@ -24,9 +24,7 @@ class LoginPage extends Component {
 	}
 
 	componentWillUnmount() {
-		this.setState({
-			setTime: ""
-		})
+
 	}
 
 
@@ -35,10 +33,11 @@ class LoginPage extends Component {
 	handleClick() {
 		this.setState({
 			pageShow: !this.state.pageShow,
-			setTime: setTimeout(() => {
-				this.props.history.push("/homeIndex/workExprience")
-			}, 1100)
 		})
+	}
+
+	animationOnEnd() {
+		this.props.history.push("/homeIndex/workExprience")
 	}
 
 
@@ -49,11 +48,25 @@ class LoginPage extends Component {
 		return (
 			//登录主页
 			//动画设置
-			<RcQueueAnim duration={1000} type={'top'} appear={false} key="demo"
-			             ease={'easeInOutQuart'}
-			             animConfig={[
-				             {opacity: [1, 0], translateY: [0, '-100%']}
-			             ]}
+			/*
+			* duration 执行时间
+			* type 执行方向
+			* appear 开始是否执行
+			* ease 动画曲线
+			* animConfig 自定义动画执行
+			* onEnd 动画执行完后回调
+			* */
+			<RcQueueAnim
+				duration={1000}
+				type={'top'}
+				appear={false}
+				ease={'easeInOutQuart'}
+				animConfig={[
+					{opacity: [1, 0], translateY: [0, '-100%']}
+				]}
+				onEnd={(callback) => {
+					this.animationOnEnd()
+				}}
 			>
 				{this.state.pageShow ? [
 					<div className="loginPage" key="animateA" onClick={() => this.handleClick()}>
