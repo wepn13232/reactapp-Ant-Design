@@ -3,6 +3,7 @@ import './form.scss'
 import {Table} from 'antd';
 import BreadCrumb from "../../../../components/BreadCrumb/breadCrumb";
 import {changeMenu} from "../../../../store/actionCreators";
+import store from "../../../../store";
 
 const {Column} = Table;
 
@@ -44,9 +45,9 @@ class Form extends Component {
 	}
 
 	//跳转至详细信息
-	toItemInfo = () => {
+	toItemInfo(){
 		this.props.history.push('/homeIndex/itemInfo');
-		this.changeMenu('2'); //菜单栏激活key = 2
+		store.dispatch(changeMenu('2'))
 	};
 
 	render() {
@@ -58,7 +59,7 @@ class Form extends Component {
 				<div className="formTable">
 					<Table dataSource={data} bordered>
 						<Column title="名称" dataIdnex="name" key="name" render={(text, record) => (
-							<span className={'item-name'} onClick={this.toItemInfo}>{record.name}</span>
+							<span className={'item-name'} onClick={()=>this.toItemInfo()}>{record.name}</span>
 						)}
 						/>
 						<Column title="年龄" dataIndex="age" key="age"/>

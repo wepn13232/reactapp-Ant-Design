@@ -11,6 +11,7 @@ import {
 } from '@ant-design/icons';
 import {renderRoutes} from "react-router-config";
 import store from "../../store";
+import {changeMenu} from "../../store/actionCreators";
 
 const {SubMenu} = Menu;
 
@@ -38,22 +39,23 @@ class HomeIndex extends Component {
 	getStoreData() {
 		this.setState({
 			storeData: store.getState(),
-		},()=>{
+		}, () => {
 			console.log(this.state.storeData)
+			this.setState({
+				activeMenu: this.state.storeData.activeMenu
+			})
 		})
 	};
 
 	//菜单栏点击
 	handleClick = e => {
+		store.dispatch(changeMenu(e.key));
 		switch (e.key) {
 			case '1':
 				this.props.history.push('/homeIndex/form');
 				break;
 		}
 	};
-	getData(){
-		console.log(this.state.storeData)
-	}
 
 
 	render() {
@@ -67,6 +69,7 @@ class HomeIndex extends Component {
 							onClick={this.handleClick}
 							style={{width: 256}}
 							defaultSelectedKeys={this.state.activeMenu}
+							selectedKeys={this.state.activeMenu}
 							defaultOpenKeys={['sub1']}
 							mode="inline">
 							<SubMenu
@@ -90,7 +93,6 @@ class HomeIndex extends Component {
 				<div className="right-content">
 					{/*顶部个人信息*/}
 					<div className="head-content">
-						<span onClick={()=>this.getData()}>获取数据</span>
 						<div className="avator"/>
 					</div>
 					{/*内容切换区域*/}
@@ -99,17 +101,6 @@ class HomeIndex extends Component {
 					</div>
 				</div>
 
-
-				{/*弹出框*/}
-				<Modal
-					title="更换主题颜色"
-					visible={this.state.visible}
-					onOk={this.confirmChangeColor}
-					onCancel={this.hideModal}
-					okText="确认"
-					cancelText="取消">
-					<span>是否确认更换主题颜色？</span>
-				</Modal>
 			</div>
 		);
 	}
