@@ -7,9 +7,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "antd": "^4.2.5",
-    "fundebug-javascript": "^2.4.1",
     "http-proxy-middleware": "^1.0.4",
-    "nes.css": "^2.3.0",
     "node-sass": "^4.14.1",
     "qs": "^6.9.4",
     "rc-queue-anim": "^1.8.5",
@@ -26,7 +24,13 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "no-undef": "off",
+      "no-restricted-globals": "off",
+      "no-unused-vars": "off",
+      "no-console": "off"
+    }
   },
   "browserslist": {
     "production": [

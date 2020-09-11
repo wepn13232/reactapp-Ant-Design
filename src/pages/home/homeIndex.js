@@ -10,6 +10,7 @@ import {
 	AppstoreOutlined,
 } from '@ant-design/icons';
 import {renderRoutes} from "react-router-config";
+import store from "../../store";
 
 const {SubMenu} = Menu;
 
@@ -22,13 +23,25 @@ class HomeIndex extends Component {
 			themeColor: '', //主题颜色
 			inputChoseColor: '', //选中的颜色
 			visible: false,
-			activeMenu:['1'], //默认打开的菜单页面
-		}
+			activeMenu: ['1'], //默认打开的菜单页面
+			storeData: store.getState(), //store数据
+		};
+		//store数据监听
+		store.subscribe(() => this.getStoreData())
 	}
 
 	componentDidMount() {
 		this.props.history.push('/homeIndex/form')
 	}
+
+	//store数据监听
+	getStoreData() {
+		this.setState({
+			storeData: store.getState(),
+		},()=>{
+			console.log(this.state.storeData)
+		})
+	};
 
 	//菜单栏点击
 	handleClick = e => {
@@ -38,37 +51,9 @@ class HomeIndex extends Component {
 				break;
 		}
 	};
-	//选择主题颜色
-	changeColor = e => {
-		if (this.state.themeColor !== e.target.value) {
-			this.setState({
-				inputChoseColor: e.target.value,
-			});
-			this.showModal();
-		}
-	};
-	//关闭对话框
-	hideModal = () => {
-		this.setState({
-			visible: false,
-		});
-	};
-	//显示对话框
-	showModal = () => {
-		this.setState({
-			visible: true,
-		});
-	};
-	//确认更改主题颜色
-	confirmChangeColor = () => {
-		this.setState({
-			themeColor: this.state.inputChoseColor,
-		}, () => {
-			console.log(this.state.themeColor)
-		});
-		message.info('主题切换成功');
-		this.hideModal();
-	};
+	getData(){
+		console.log(this.state.storeData)
+	}
 
 
 	render() {
@@ -105,8 +90,7 @@ class HomeIndex extends Component {
 				<div className="right-content">
 					{/*顶部个人信息*/}
 					<div className="head-content">
-						<span>更换主题颜色</span>
-						<input type="color" onBlur={this.changeColor}/>
+						<span onClick={()=>this.getData()}>获取数据</span>
 						<div className="avator"/>
 					</div>
 					{/*内容切换区域*/}

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './form.scss'
 import {Table} from 'antd';
 import BreadCrumb from "../../../../components/BreadCrumb/breadCrumb";
+import {changeMenu} from "../../../../store/actionCreators";
 
 const {Column} = Table;
 
@@ -44,7 +45,8 @@ class Form extends Component {
 
 	//跳转至详细信息
 	toItemInfo = () => {
-		this.props.history.push('/homeIndex/itemInfo')
+		this.props.history.push('/homeIndex/itemInfo');
+		this.changeMenu('2'); //菜单栏激活key = 2
 	};
 
 	render() {

@@ -1,6 +1,6 @@
 //定义默认数据值
 let defaultState = {
-	lists: [],
+	activeMenu:['1'],//全局激活的菜单页面，默认第一个
 };
 
 // 深度拷贝数据
@@ -12,16 +12,12 @@ const deepCopy = content => JSON.parse(JSON.stringify(content));
 * */
 export default (state = defaultState, action) => {
 
-	//添加列表
-	if (action.type === "add_list") {
-		//拷贝数据，官方不推荐直接修改state，因拷贝出来修改之后再赋值回去
+	//菜单栏变化
+	if (action.type==='change_menu'){
 		let newState = deepCopy(state);
-		newState.lists.push(action.val); //添加数据
-
+		newState.activeMenu = [action.val]; //添加数据
 		return newState
 	}
-
-	//
 
 
 	return state;  //最终拿到返回的newState

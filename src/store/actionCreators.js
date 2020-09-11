@@ -3,8 +3,8 @@
 * */
 
 //列表添加
-export const addItem = (val) => ({
-	type: 'add_list',  //这里的type要匹配上reducer
+export const changeMenu = (val) => ({
+	type: 'change_menu',  //这里的type要匹配上reducer
 	val: val //这个是数据
 });
 
