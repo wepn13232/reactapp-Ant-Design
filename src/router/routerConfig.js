@@ -1,10 +1,8 @@
 import React from "react";
 import LoginPage from "../pages/loginPage/loginPage";
-import WorkExprience from "../pages/workExprience/workExprience";
 import homeIndex from "../pages/home/homeIndex";
-import ItemExprience from "../pages/itemExprience/itemExprience";
-import PersonalAbility from "../pages/personalAbility/personalAbility";
-import PersonalHonor from "../pages/personalHonor/personalHonor";
+import Form from "../pages/home/childPages/form/form";
+import ItemInfo from "../pages/home/childPages/ItemInfo/itemInfo";
 
 
 //路由配置
@@ -12,32 +10,23 @@ const routers = [
 	{
 		path: "/",
 		component: LoginPage,
-		exact: true
+		exact:true
 	},
 	{
 		path: "/loginPage",
-		component: LoginPage,
+		component: homeIndex,
 	},
 	{
 		path: "/homeIndex",
 		component: homeIndex,
-		children:[
+		children: [
 			{
-				path:"/homeIndex/workExprience",
-				component:WorkExprience,
+				path: "/homeIndex/form",
+				component: Form,
 			},
 			{
-				path:"/homeIndex/ItemExprience",
-				component:ItemExprience,
-				authorization:true, //登录验证
-			},
-			{
-				path:"/homeIndex/PersonalAbility",
-				component:PersonalAbility,
-			},
-			{
-				path:"/homeIndex/PersonalHonor",
-				component:PersonalHonor,
+				path: "/homeIndex/itemInfo",
+				component: ItemInfo,
 			},
 		]
 	},

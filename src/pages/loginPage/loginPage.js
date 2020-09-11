@@ -1,26 +1,25 @@
 import React, {Component} from 'react';
 import './loginPage.scss';
-import RcQueueAnim from "rc-queue-anim";
+import {
+	Form,
+	Input,
+	Button,
+	message
+} from 'antd';
 
+
+const layout = {
+	labelCol: {span: 4},
+};
 
 class LoginPage extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			//表单
-			formValue: {
-				userName: "",
-				password: ""
-			},
-			showDialog: false,
-			pageShow: true,
-			setTime: ""
-		}
+		this.state = {}
 	}
 
 	componentDidMount() {
-		var a = document.getElementsByTagName('body');
-		a[0].style.backgroundColor = "#f9f9f9"
+
 	}
 
 	componentWillUnmount() {
@@ -30,66 +29,53 @@ class LoginPage extends Component {
 
 	//Methods============
 
-	handleClick() {
-		this.setState({
-			pageShow: !this.state.pageShow,
-		})
-	}
-
-	animationOnEnd() {
-		this.props.history.push("/homeIndex/workExprience")
-	}
-
+	//表单完成填写
+	onFinish = (val) => {
+		if (val.username === 'linqy' && val.password === '131898') {
+			message.success("登录成功");
+			this.props.history.push('/homeIndex');
+		} else {
+			message.error('账号或密码错误！');
+		}
+	};
+	//表单填写错误
+	onFinishFailed = err => {
+		console.log(err);
+	};
 
 	//Methods__end===========
 
 
 	render() {
 		return (
-			//登录主页
-			//动画设置
-			/*
-			* duration 执行时间
-			* type 执行方向
-			* appear 开始是否执行
-			* ease 动画曲线
-			* animConfig 自定义动画执行
-			* onEnd 动画执行完后回调
-			* */
-			<RcQueueAnim
-				duration={1000}
-				type={'top'}
-				appear={false}
-				ease={'easeInOutQuart'}
-				animConfig={[
-					{opacity: [1, 0], translateY: [0, '-100%']}
-				]}
-				onEnd={(callback) => {
-					this.animationOnEnd()
-				}}
-			>
-				{this.state.pageShow ? [
-					<div className="loginPage" key="animateA" onClick={() => this.handleClick()}>
-						{/*登录表单*/}
-						<div className="loginForm">
-							<h1 className="titleLogo">Sev3n像素风</h1>
-							<h3 className="titleLogo">林启元的个人简历</h3>
-						</div>
-
-						<div className="mouseClick">
-							<span>鼠标点击进入</span>
-						</div>
-
-						{/*nes图标*/}
-						<div className="fixBottom">
-							<i className="nes-pokeball fl"></i>
-							<i className="nes-kirby fr"></i>
-							<div className="clearFix"></div>
-						</div>
+			<div className="login-page">
+				<div className="wallpaper">
+					{/*填写表单*/}
+					<div className="fill-form">
+						<div className={'form-title'}>Sev3n Website</div>
+						<Form layout="horizontal"
+						      {...layout}
+						      onFinish={this.onFinish}
+						      onFinishFailed={this.onFinishFailed}>
+							<Form.Item
+								label="用户名"
+								name="username"
+								rules={[{required: true, message: '请输入用户名'}]}>
+								<Input type={"text"}/>
+							</Form.Item>
+							<Form.Item
+								label="密码"
+								name="password"
+								rules={[{required: true, message: '请输入密码'}]}>
+								<Input type={"password"}/>
+							</Form.Item>
+							<Form.Item className="btnGroup">
+								<Button type="primary" htmlType="submit">登录</Button>
+							</Form.Item>
+						</Form>
 					</div>
-				] : null}
-
-			</RcQueueAnim>
+				</div>
+			</div>
 		);
 	}
 }

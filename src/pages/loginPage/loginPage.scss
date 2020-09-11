@@ -1,67 +1,33 @@
-
-.loginPage {
+.login-page {
   width: 100%;
   height: 100%;
   position: absolute;
-  padding-top: 10%;
-  background-color: #2cafff;
+  background-color: #f9f9f9;
 
-  .loginForm {
-    background-color: #ffffff;
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px 20px;
-
-    .titleLogo {
-      width: 100%;
-      text-align: center;
-    }
-
-    .formItem {
-      margin-bottom: 20px;
-    }
-  }
-
-  .mouseClick {
-    color: #ffffff;
+  .wallpaper {
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin-top: 10%;
-    font-size: larger;
-    animation: mouseClickFlicker 1s ease-in-out infinite;
-    animation-direction: alternate;
-  }
-}
+    width: 100%;
+    height: 100%;
 
-.cn_FontFamily {
-  font-family: Zpix !important;
-}
+    .fill-form {
+      width: 500px;
+      padding: 25px;
+      background-color: #ffffff;
 
-.fixBottom {
-  padding: 10px 10px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
+      .form-title {
+        font-weight: 500;
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
 
-.fr {
-  float: right;
-}
-
-.fl {
-  float: left;
-}
-
-.clearFix {
-  clear: both;
-}
-
-
-@keyframes mouseClickFlicker {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+      .btnGroup {
+        width: 100%;
+        text-align: right;
+      }
+    }
   }
 }
